@@ -7,24 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93F80F8E22D6E21700843FCD /* PRSlideView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F80F8422D6E21700843FCD /* PRSlideView.framework */; };
 		93F80FA122D6E3DD00843FCD /* PRSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F80FA022D6E3DD00843FCD /* PRSlideView.swift */; };
+		93F80FA522D70B3A00843FCD /* PRSlideViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F80FA422D70B3A00843FCD /* PRSlideViewPage.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		93F80F8F22D6E21700843FCD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93F80F7B22D6E21700843FCD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93F80F8322D6E21700843FCD;
-			remoteInfo = PRSlideView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		93F80F8422D6E21700843FCD /* PRSlideView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PRSlideView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F80F8822D6E21700843FCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93F80FA022D6E3DD00843FCD /* PRSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRSlideView.swift; sourceTree = "<group>"; };
+		93F80FA422D70B3A00843FCD /* PRSlideViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRSlideViewPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,14 +23,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93F80F8A22D6E21700843FCD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93F80F8E22D6E21700843FCD /* PRSlideView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				93F80FA022D6E3DD00843FCD /* PRSlideView.swift */,
+				93F80FA422D70B3A00843FCD /* PRSlideViewPage.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -124,10 +108,6 @@
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
 					};
-					93F80F8C22D6E21700843FCD = {
-						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1020;
-					};
 				};
 			};
 			buildConfigurationList = 93F80F7E22D6E21700843FCD /* Build configuration list for PBXProject "PRSlideView" */;
@@ -155,13 +135,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		93F80F8B22D6E21700843FCD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -170,25 +143,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93F80FA122D6E3DD00843FCD /* PRSlideView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93F80F8922D6E21700843FCD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				93F80FA522D70B3A00843FCD /* PRSlideViewPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		93F80F9022D6E21700843FCD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93F80F8322D6E21700843FCD /* PRSlideView */;
-			targetProxy = 93F80F8F22D6E21700843FCD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		93F80F9622D6E21700843FCD /* Debug */ = {
