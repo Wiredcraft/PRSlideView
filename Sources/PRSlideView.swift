@@ -268,8 +268,8 @@ open class PRSlideView: UIView {
     
     // MARK: Layout
     
-    var firstLayout: Bool = true
-    var isChangingLayout: Bool = false
+    private var firstLayout: Bool = true
+    private var isChangingLayout: Bool = false
     open override func layoutSubviews() {
         if firstLayout {
             firstLayout = false
