@@ -91,44 +91,40 @@ open class PRSlideView: UIView {
     }()
     
     private var horizontalLayout: [NSLayoutConstraint] {
-        get {
-            return [
-                NSLayoutConstraint(item: containerView,
-                                   attribute: .width,
-                                   relatedBy: .equal,
-                                   toItem: scrollView,
-                                   attribute: .width,
-                                   multiplier: CGFloat(numberOfPages * (infiniteScrollingEnabled ? bufferLength : 1)),
-                                   constant: 0),
-                NSLayoutConstraint(item: containerView,
-                                   attribute: .height,
-                                   relatedBy: .equal,
-                                   toItem: scrollView,
-                                   attribute: .height,
-                                   multiplier: 1,
-                                   constant: 0)
-            ]
-        }
+        return [
+            NSLayoutConstraint(item: containerView,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: scrollView,
+                               attribute: .width,
+                               multiplier: CGFloat(numberOfPages * (infiniteScrollingEnabled ? bufferLength : 1)),
+                               constant: 0),
+            NSLayoutConstraint(item: containerView,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: scrollView,
+                               attribute: .height,
+                               multiplier: 1,
+                               constant: 0)
+        ]
     }
     private var verticalLayout: [NSLayoutConstraint] {
-        get {
-            return [
-                NSLayoutConstraint(item: containerView,
-                                   attribute: .width,
-                                   relatedBy: .equal,
-                                   toItem: scrollView,
-                                   attribute: .width,
-                                   multiplier: 1,
-                                   constant: 0),
-                NSLayoutConstraint(item: containerView,
-                                   attribute: .height,
-                                   relatedBy: .equal,
-                                   toItem: scrollView,
-                                   attribute: .height,
-                                   multiplier: CGFloat(numberOfPages * (infiniteScrollingEnabled ? bufferLength : 1)),
-                                   constant: 0)
-            ]
-        }
+        return [
+            NSLayoutConstraint(item: containerView,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: scrollView,
+                               attribute: .width,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: containerView,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: scrollView,
+                               attribute: .height,
+                               multiplier: CGFloat(numberOfPages * (infiniteScrollingEnabled ? bufferLength : 1)),
+                               constant: 0)
+        ]
     }
     private var cachedLayout: [NSLayoutConstraint]?
     private func layoutContainerView() {
@@ -157,9 +153,7 @@ open class PRSlideView: UIView {
     // MARK: Access status
     
     open var currentPageIndex: Int {
-        get {
-            return index(forPhysical: currentPagePhysicalIndex)
-        }
+        return index(forPhysical: currentPagePhysicalIndex)
     }
     
     open private(set) var numberOfPages: Int = 0 {
@@ -182,9 +176,7 @@ open class PRSlideView: UIView {
     }
     
     open var visiblePages: [PRSlideViewPage] {
-        get {
-            return loadedPages.sorted { $0.pageIndex < $1.pageIndex }
-        }
+        return loadedPages.sorted { $0.pageIndex < $1.pageIndex }
     }
     
     // MARK: UI Control
