@@ -24,7 +24,8 @@ github "Wiredcraft/PRSlideView" ~> 1.0
 
 ```swift
 private lazy var slideView: PRSlideView = {
-    let view = PRSlideView(direction: .horizontal, infiniteScrolling: true)
+    let view = PRSlideView(direction: .horizontal,
+                           infiniteScrolling: true)
     view.dataSource = self
     view.delegate = self
     view.register(AlbumPage.self,
@@ -47,7 +48,7 @@ class AlbumPage: PRSlideViewPage {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         let attributes: [NSLayoutConstraint.Attribute] = [.top, .bottom, .leading, .trailing]
-        NSLayoutConstraint.activate(attributes.map{
+        NSLayoutConstraint.activate(attributes.map {
             return NSLayoutConstraint(item: view,
                                       attribute: $0,
                                       relatedBy: .equal,
