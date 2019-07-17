@@ -548,6 +548,7 @@ extension PRSlideView: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
+            guard firstLayout == false else { return }
             guard isChangingLayout == false else { return }
             let offset = scrollView.contentOffset
             currentPagePhysicalIndex = {
