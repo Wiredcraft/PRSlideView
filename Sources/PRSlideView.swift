@@ -215,6 +215,51 @@ open class PRSlideView: UIView {
         scrollToPage(at: currentPageIndex + 1, forward: true, animated: animated)
     }
     
+    open private(set) var isAutoScrollingEnabled: Bool = false
+    open var autoScrollingTimeInterval: TimeInterval = 5.0
+    open var autoScrollingRunLoopMode: RunLoop.Mode = .default
+    private var autoScrollingTimer: Timer?
+    open func startAutoScrolling() {
+        startAutoScrolling(withTimeInterval: autoScrollingTimeInterval,
+                           withRunLoopMode: autoScrollingRunLoopMode)
+    }
+    
+    open func startAutoScrolling(withTimeInterval interval: TimeInterval) {
+        startAutoScrolling(withTimeInterval: interval,
+                           withRunLoopMode: autoScrollingRunLoopMode)
+    }
+    
+    open func startAutoScrolling(withRunLoopMode mode: RunLoop.Mode) {
+        startAutoScrolling(withTimeInterval: autoScrollingTimeInterval,
+                           withRunLoopMode: mode)
+    }
+    
+    open func startAutoScrolling(withTimeInterval interval: TimeInterval, withRunLoopMode mode: RunLoop.Mode) {
+        autoScrollingTimer?.invalidate()
+        isAutoScrollingEnabled = true
+        autoScrollingTimeInterval = interval
+        autoScrollingRunLoopMode = mode
+        autoScrollingTimer = {
+            let timer = Timer(timeInterval: interval,
+                              repeats: true,
+                              block: { [weak self] timer in
+                                guard let `self` = self else {
+                                    timer.invalidate()
+                                    return
+                                }
+                                self.scrollToNextPage()
+            })
+            RunLoop.main.add(timer,
+                             forMode: mode)
+            return timer
+        }()
+    }
+    
+    open func stopAutoScrolling() {
+        autoScrollingTimer?.invalidate()
+        isAutoScrollingEnabled = false
+    }
+    
     // MARK: Data control
     
     open func reloadData() {
@@ -561,6 +606,29 @@ extension PRSlideView: UIScrollViewDelegate {
                     return Int((offset.y + height * 0.5) / height)
                 }
             }()
+        }
+    }
+    
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            if isAutoScrollingEnabled {
+                autoScrollingTimer?.invalidate()
+            }
+        }
+    }
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == self.scrollView {
+            if isAutoScrollingEnabled {
+                startAutoScrolling(withTimeInterval: autoScrollingTimeInterval,
+                                   withRunLoopMode: autoScrollingRunLoopMode)
+            }
+        }
+    }
+    
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            pageControl.currentPage = currentPageIndex
         }
     }
     
