@@ -58,7 +58,9 @@ open class PRSlideView: UIView {
     
     private var currentPagePhysicalIndex: Int = 0 {
         didSet {
-            didScrollToPage(physicallyAt: currentPagePhysicalIndex)
+            if oldValue != currentPagePhysicalIndex {
+                didScrollToPage(physicallyAt: currentPagePhysicalIndex)
+            }
         }
     }
     private var baseIndexOffset: Int = 0
